@@ -54,5 +54,5 @@ El proyecto está construido utilizando tecnologías frontend estándar:
 Sigue estos pasos para ejecutar el sitio localmente:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/CodeTreeCompany/codetree_webpage
 cd codetree-website
