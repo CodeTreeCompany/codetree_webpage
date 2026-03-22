@@ -1,0 +1,12 @@
+/* Color Palette - Base Colors */
+:root {
+  --primary: #7C4DFF;
+  --secondary: #0091EA;
+  --green: #00E676;
+  --green-dark: #00C853;
+  --green-light: #69F0AE;
+  --dark: #0A0B10;
+  --dark-light: #14161F;
+  --white: #FFFFFF;
+  --gray: #94A3B8;
+}

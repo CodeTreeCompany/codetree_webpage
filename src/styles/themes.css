@@ -1,0 +1,21 @@
+/* Light Theme (Default) */
+:root {
+  --bg-primary: #F5F5F5;
+  --bg-secondary: #FFFFFF;
+  --text-primary: #2D3436;
+  --text-secondary: #636E72;
+  --card-bg: #FFFFFF;
+  --border-color: #E1E8ED;
+}
+
+/* Dark Theme - Overrides when system preference is dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0A0B10;
+    --bg-secondary: #14161F;
+    --text-primary: #FFFFFF;
+    --text-secondary: #94A3B8;
+    --card-bg: #14161F;
+    --border-color: rgba(124, 77, 255, 0.1);
+  }
+}

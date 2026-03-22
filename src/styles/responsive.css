@@ -1,0 +1,85 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+  .construction-container {
+    margin: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .construction-title {
+    font-size: 2rem;
+  }
+  
+  .construction-description {
+    font-size: 1rem;
+  }
+  
+  .feature {
+    width: 120px;
+    padding: 1rem;
+  }
+  
+  .feature-icon {
+    font-size: 1.75rem;
+  }
+  
+  .construction-logo h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .construction-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .construction-title {
+    font-size: 1.75rem;
+  }
+  
+  .construction-description {
+    font-size: 0.9375rem;
+  }
+  
+  .feature {
+    width: 100px;
+    padding: 0.875rem;
+  }
+  
+  .feature-icon {
+    font-size: 1.5rem;
+  }
+  
+  .feature h4 {
+    font-size: 0.75rem;
+  }
+  
+  .contact-emails {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .contact-emails span {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .construction-features {
+    gap: 0.75rem;
+  }
+  
+  .feature {
+    width: calc(50% - 0.75rem);
+    min-width: 85px;
+  }
+  
+  .construction-title {
+    font-size: 1.5rem;
+  }
+  
+  .construction-badge {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.875rem;
+  }
+}
