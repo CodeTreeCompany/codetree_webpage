@@ -56,3 +56,4 @@ Sigue estos pasos para ejecutar el sitio localmente:
 ```bash
 git clone https://github.com/CodeTreeCompany/codetree_webpage
 cd codetree-website
+node server.js
