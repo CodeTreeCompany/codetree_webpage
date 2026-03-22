@@ -48,7 +48,7 @@ CodeTree es una empresa de tecnología innovadora dedicada a la creación de sol
 
 1. **Clonar el repositorio**
    ```
-   git clone <url-del-repositorio>
+   git clone https://github.com/CodeTreeCompany/codetree_webpage
    cd codetree-web
 
 
@@ -93,7 +93,6 @@ Usando:
 ### Proyecto Privado
 No se aceptan contribuciones externas
 Acceso restringido
-
 Solo personal autorizado
 
 ## Contacto
