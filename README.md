@@ -1,4 +1,4 @@
-# 🌳 CodeTree - En Construcción
+# 🌳 CodeTree Coampany Website
 
 ![React](https://img.shields.io/badge/React-19.2.4-61DAFB?style=flat&logo=react&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=flat&logo=javascript&logoColor=black)
@@ -51,15 +51,15 @@ CodeTree es una empresa de tecnología innovadora dedicada a la creación de sol
    git clone <url-del-repositorio>
    cd codetree-web
 
-   
 
 Instalar dependencias
 
-
+```
 pnpm install
+
 Iniciar el servidor de desarrollo
 
-
+```
 pnpm start
 Abrir el navegador
 
@@ -69,6 +69,7 @@ La página se recargará automáticamente al realizar cambios
 
 Compilar para Producción
 
+```
 pnpm build
 Este comando crea una versión optimizada para producción en la carpeta build/.
 
@@ -76,16 +77,19 @@ Temas
 
 Automático según sistema:
 
-🌞 Claro
-🌙 Oscuro
+- Claro
+- Oscuro
 
 Usando:
 
 prefers-color-scheme
-🔒 Proyecto Privado
+
+### Proyecto Privado
 No se aceptan contribuciones externas
 Acceso restringido
+
 Solo personal autorizado
-📧 Contacto
+
+## Contacto
 Elmer Urbina → elmerurbina570@gmail.com
 Holman Rugama → holmanrugama2006@gmail.com
