@@ -71,9 +71,11 @@ Compilar para Producción
 
 ```
 pnpm build
+
+```
 Este comando crea una versión optimizada para producción en la carpeta build/.
 
-Temas
+### Temas
 
 Automático según sistema:
 
