@@ -56,12 +56,16 @@ Instalar dependencias
 
 ```
 pnpm install
+```
 
-Iniciar el servidor de desarrollo
+#### Iniciar el servidor de desarrollo
 
 ```
 pnpm start
-Abrir el navegador
+
+```
+
+**Abrir el navegador**
 
 Navegar a: http://localhost:3000
 
@@ -73,18 +77,18 @@ Compilar para Producción
 pnpm build
 
 ```
-Este comando crea una versión optimizada para producción en la carpeta build/.
+_Este comando crea una versión optimizada para producción en la carpeta build/._
 
 ### Temas
 
-Automático según sistema:
+**Automático según sistema:**
 
 - Claro
 - Oscuro
 
 Usando:
 
-prefers-color-scheme
+**prefers-color-scheme**
 
 ### Proyecto Privado
 No se aceptan contribuciones externas
