@@ -1,10 +1,10 @@
-# 🌐 CodeTree Website
+# CodeTree Website
 
 Sitio web oficial de la organización **Code Tree**, diseñado para presentar nuestros servicios, proyectos y visión tecnológica de forma clara, moderna y accesible.
 
----
 
-## 🏢 Sobre Code Tree
+
+## Sobre Code Tree
 
 **Code Tree** es una organización enfocada en el desarrollo de soluciones tecnológicas innovadoras, incluyendo:
 
@@ -15,7 +15,6 @@ Sitio web oficial de la organización **Code Tree**, diseñado para presentar nu
 
 Este repositorio contiene el **sitio web oficial de la empresa**, utilizado como plataforma de presentación institucional.
 
----
 
 ##  Políticas de colaboración
 
@@ -26,19 +25,19 @@ Este es un **repositorio privado de uso interno**.
 
 Cualquier modificación debe ser aprobada por los líderes del proyecto.
 
----
 
-## 👨‍💻 Equipo líder
+
+##  Equipo líder
 
 - **Elmer Urbina**  
-  📧 elmerurbina570@gmai.com  
+  elmerurbina570@gmai.com  
 
 - **Holman Rugama**  
-  📧 holmanrugama2006@gmail.com  
+  holmanrugama2006@gmail.com  
 
----
 
-## 🛠️ Tecnologías utilizadas
+
+## Tecnologías utilizadas
 
 El proyecto está construido utilizando tecnologías frontend estándar:
 
@@ -47,7 +46,7 @@ El proyecto está construido utilizando tecnologías frontend estándar:
 - **JavaScript (Vanilla)**
 - **Bootstrap**
 
----
+
 
 
 ##  Cómo ejecutar el proyecto
