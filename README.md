@@ -47,9 +47,11 @@ CodeTree es una empresa de tecnología innovadora dedicada a la creación de sol
 ### Instalación y Configuración
 
 1. **Clonar el repositorio**
-   ```bash
+   ```
    git clone <url-del-repositorio>
    cd codetree-web
+
+   
 
 Instalar dependencias
 
