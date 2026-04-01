@@ -1,12 +1,206 @@
-/* Color Palette - Base Colors */
+/* ============================================
+   CodeTree Design System - CSS Variables
+   Based on Brand Guidelines
+   ============================================ */
+
 :root {
-  --primary: #7C4DFF;
-  --secondary: #0091EA;
-  --green: #00E676;
-  --green-dark: #00C853;
-  --green-light: #69F0AE;
-  --dark: #0A0B10;
-  --dark-light: #14161F;
-  --white: #FFFFFF;
-  --gray: #94A3B8;
+  /* ========================================
+     COLOR SYSTEM - Light Theme (Default)
+     ======================================== */
+  
+  /* Primary Colors - Green (Crecimiento y Confianza) */
+  --green-100: #E8F8F1;
+  --green-200: #C6F1DE;
+  --green-300: #8FE3C0;
+  --green-400: #4FD1A5;
+  --green-500: #10B981;  /* Verde Principal */
+  
+  /* Secondary Colors - Blue (Tecnología y Seguridad) */
+  --blue-100: #EAF2FF;
+  --blue-200: #C7DBFF;
+  --blue-300: #8FB8FF;
+  --blue-400: #4A90F3;
+  --blue-500: #2563EB;  /* Azul Principal */
+  
+  /* Tertiary Colors - Purple (Innovación e IA) */
+  --purple-100: #F3E8FF;
+  --purple-200: #E0C7FF;
+  --purple-300: #C084FC;
+  --purple-400: #A855F7;
+  --purple-500: #7C3AED;  /* Morado Principal */
+  
+  /* Neutral Colors - Grays */
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-300: #D1D5DB;
+  --gray-500: #6B7280;
+  --gray-900: #111827;
+  
+  /* Status Colors */
+  --success-bg: #D1FAE5;
+  --success-base: #22C55E;
+  --error-bg: #FEE2E2;
+  --error-base: #EF4444;
+  --warning-bg: #FEF9C3;
+  --warning-base: #EAB308;
+  --info-bg: #DBEAFE;
+  --info-base: #3B82F6;
+  
+  /* Background Colors */
+  --bg-primary: var(--gray-50);
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: var(--gray-100);
+  
+  /* Text Colors */
+  --text-primary: var(--gray-900);
+  --text-secondary: var(--gray-500);
+  --text-muted: #6B7280;
+  --text-disabled: #9CA3AF;
+  
+  /* Component Colors */
+  --card-bg: #FFFFFF;
+  --card-border: var(--gray-300);
+  --input-bg: #FFFFFF;
+  --input-border: var(--gray-300);
+  --input-focus: var(--blue-500);
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --footer-bg: var(--gray-900);
+  --footer-text: rgba(255, 255, 255, 0.7);
+  
+  /* Border & Shadow */
+  --border-color: var(--gray-300);
+  --border-light: var(--gray-100);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--green-500), var(--blue-500));
+  --gradient-innovation: linear-gradient(135deg, var(--purple-500), var(--blue-500));
+  --gradient-hero: linear-gradient(135deg, var(--gray-50), var(--gray-100));
+  
+  /* Typography - Font Families */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  
+  /* Typography - Font Sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  
+  /* Typography - Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  
+  /* Typography - Line Heights */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-base: 250ms;
+  --transition-slow: 350ms;
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
+
+/* Dark Theme - Overrides when system preference is dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Background Colors - Dark Mode */
+    --bg-primary: #0A0B10;
+    --bg-secondary: #14161F;
+    --bg-tertiary: #1A1C26;
+    
+    /* Text Colors - Dark Mode */
+    --text-primary: #FFFFFF;
+    --text-secondary: #94A3B8;
+    --text-muted: #94A3B8;
+    --text-disabled: #6B7280;
+    
+    /* Component Colors - Dark Mode */
+    --card-bg: #14161F;
+    --card-border: rgba(124, 77, 255, 0.2);
+    --input-bg: #14161F;
+    --input-border: rgba(124, 77, 255, 0.2);
+    --navbar-bg: rgba(10, 11, 16, 0.95);
+    --footer-bg: #0A0B10;
+    
+    /* Border & Shadow - Dark Mode */
+    --border-color: rgba(124, 77, 255, 0.15);
+    --border-light: rgba(124, 77, 255, 0.1);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    
+    /* Gradients - Dark Mode */
+    --gradient-hero: linear-gradient(135deg, #0A0B10, #14161F);
+    
+    /* Status Colors - Dark Mode Adjusted */
+    --success-bg: rgba(34, 197, 94, 0.15);
+    --error-bg: rgba(239, 68, 68, 0.15);
+    --warning-bg: rgba(234, 179, 8, 0.15);
+    --info-bg: rgba(59, 130, 246, 0.15);
+  }
+}
+
+/* ============================================
+   Utility Classes for Color Usage
+   ============================================ */
+
+/* Primary Color Classes */
+.text-green { color: var(--green-500); }
+.text-blue { color: var(--blue-500); }
+.text-purple { color: var(--purple-500); }
+
+.bg-green { background-color: var(--green-500); }
+.bg-blue { background-color: var(--blue-500); }
+.bg-purple { background-color: var(--purple-500); }
+
+/* Gradient Classes */
+.gradient-primary { background: var(--gradient-primary); }
+.gradient-innovation { background: var(--gradient-innovation); }
+
+/* Status Classes */
+.status-success { background: var(--success-bg); color: var(--success-base); }
+.status-error { background: var(--error-bg); color: var(--error-base); }
+.status-warning { background: var(--warning-bg); color: var(--warning-base); }
+.status-info { background: var(--info-bg); color: var(--info-base); }

@@ -1,6 +1,7 @@
 import React from 'react';
 import VoiceWelcome from './components/voice_welcome';
-import MainContent from './components/main_content';
+import Layout from './components/layout/layout';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/App.css';
 
 const App = () => {
@@ -9,8 +10,8 @@ const App = () => {
       {/* Voice welcome - plays automatically in background */}
       <VoiceWelcome />
       
-      {/* Main content - shows immediately */}
-      <MainContent />
+      {/* Main layout with Bootstrap */}
+      <Layout />
     </div>
   );
 };
