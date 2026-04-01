@@ -1,0 +1,244 @@
+/* ============================================
+   CodeTree Layout Styles - Simple Building Page
+   Using Inter (Primary) and JetBrains Mono (Tech)
+   ============================================ */
+
+/* Import Theme Variables */
+@import url('../variables.css');
+@import url('../typography.css');
+
+/* Layout Wrapper */
+.layout-wrapper {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-family: var(--font-primary);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Building Container */
+.building-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Building Content */
+.building-content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Animated Icon */
+.building-icon {
+  margin-bottom: 2rem;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.building-icon svg {
+  color: var(--green-500);
+  width: 80px;
+  height: 80px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Title Styles - Using Inter */
+.building-title {
+  font-size: 56px;
+  font-weight: var(--font-extrabold);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-primary);
+  color: var(--text-primary);
+}
+
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Description - Using Inter */
+.building-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  font-family: var(--font-primary);
+}
+
+/* Tech Stack - Using JetBrains Mono */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tech-stack-tag {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: var(--font-medium);
+  padding: 0.5rem 1.25rem;
+  background: var(--bg-tertiary);
+  color: var(--green-500);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-fast) var(--ease-out);
+  cursor: default;
+}
+
+.tech-stack-tag:hover {
+  border-color: var(--green-500);
+  transform: translateY(-2px);
+  background: var(--green-500);
+  color: white;
+}
+
+/* Status Indicator */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  margin-bottom: 2rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--green-500);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+.status-text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: var(--font-medium);
+  color: var(--green-500);
+  letter-spacing: 0.5px;
+}
+
+/* Contact Info */
+.contact-info-simple {
+  margin-top: 1rem;
+}
+
+.contact-email {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.3px;
+}
+
+.contact-social {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.social-link {
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color var(--transition-fast) var(--ease-out);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  color: var(--green-500);
+}
+
+.social-separator {
+  color: var(--text-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .building-title {
+    font-size: 40px;
+  }
+  
+  .building-description {
+    font-size: 16px;
+    padding: 0 1rem;
+  }
+  
+  .tech-stack-tag {
+    font-size: 11px;
+    padding: 0.4rem 1rem;
+  }
+  
+  .building-icon svg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .building-title {
+    font-size: 32px;
+  }
+  
+  .building-description {
+    font-size: 15px;
+  }
+  
+  .tech-stack {
+    gap: 0.5rem;
+  }
+  
+  .tech-stack-tag {
+    font-size: 10px;
+    padding: 0.35rem 0.875rem;
+  }
+  
+  .contact-email {
+    font-size: 12px;
+  }
+  
+  .contact-social {
+    font-size: 11px;
+    gap: 0.75rem;
+  }
+}
