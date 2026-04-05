@@ -1,0 +1,387 @@
+/* src/components/ui/Button.module.css */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  border: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================================
+   PRIMARY VARIANT
+   ============================================ */
+.primary {
+  background: var(--green-500);
+  color: white;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 1;
+}
+
+.primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+  opacity: 0;
+  transition: opacity var(--transition-base) var(--ease-out);
+  z-index: -1;
+  border-radius: inherit;
+}
+
+/* Primary Hover State */
+.primary:hover:not(:disabled) {
+  background: var(--green-400);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+
+
+/* Primary Clicked/Active State */
+.primary.clicked {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.05s ease-in;
+}
+
+.primary:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   SECONDARY VARIANT
+   ============================================ */
+.secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.secondary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+/* Secondary Hover State */
+.secondary:hover:not(:disabled) {
+  border-color: var(--green-500);
+  color: var(--green-500);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.secondary:hover:not(:disabled)::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Secondary Clicked/Active State */
+.secondary.clicked {
+  transform: translateY(1px);
+  background: var(--green-100);
+  border-color: var(--green-500);
+  color: var(--green-500);
+  transition: all 0.05s ease-in;
+}
+
+.secondary:active:not(:disabled) {
+  transform: translateY(1px);
+  background: var(--green-100);
+}
+
+/* ============================================
+   NORMAL VARIANT (Ghost/Default)
+   ============================================ */
+.normal {
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  position: relative;
+}
+
+.normal::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: all var(--transition-base) var(--ease-out);
+  transform: translateX(-50%);
+}
+
+/* Normal Hover State */
+.normal:hover:not(:disabled) {
+  color: var(--green-500);
+  background: var(--bg-tertiary);
+  transform: translateY(-1px);
+}
+
+.normal:hover:not(:disabled)::after {
+  width: 80%;
+}
+
+/* Normal Clicked/Active State */
+.normal.clicked {
+  transform: translateY(1px);
+  background: var(--bg-tertiary);
+  color: var(--green-500);
+  transition: all 0.05s ease-in;
+}
+
+.normal:active:not(:disabled) {
+  transform: translateY(1px);
+  background: var(--bg-tertiary);
+}
+
+/* ============================================
+   OUTLINE VARIANT (Extra)
+   ============================================ */
+.outline {
+  background: transparent;
+  color: var(--green-500);
+  border: 2px solid var(--green-500);
+  position: relative;
+  overflow: hidden;
+}
+
+.outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  transition: left var(--transition-base) var(--ease-out);
+  z-index: -1;
+}
+
+/* Outline Hover State */
+.outline:hover:not(:disabled) {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.outline:hover:not(:disabled)::before {
+  left: 0;
+}
+
+/* Outline Clicked/Active State */
+.outline.clicked {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.05s ease-in;
+}
+
+.outline:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* ============================================
+   DANGER VARIANT (Extra)
+   ============================================ */
+.danger {
+  background: var(--error-base);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Danger Hover State */
+.danger:hover:not(:disabled) {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Danger Clicked/Active State */
+.danger.clicked {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.05s ease-in;
+}
+
+.danger:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* ============================================
+   SUCCESS VARIANT (Extra)
+   ============================================ */
+.success {
+  background: var(--success-base);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Success Hover State */
+.success:hover:not(:disabled) {
+  background: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Success Clicked/Active State */
+.success.clicked {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.05s ease-in;
+}
+
+.success:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* ============================================
+   SIZES
+   ============================================ */
+.sm {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--text-sm);
+  min-height: 32px;
+}
+
+.md {
+  padding: var(--spacing-3) var(--spacing-6);
+  font-size: var(--text-base);
+  min-height: 40px;
+}
+
+.lg {
+  padding: var(--spacing-4) var(--spacing-8);
+  font-size: var(--text-lg);
+  min-height: 48px;
+}
+
+/* Full Width */
+.fullWidth {
+  width: 100%;
+}
+
+/* Disabled State */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  pointer-events: none;
+}
+
+/* Loading State */
+.loading {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Icon */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.2em;
+  transition: transform var(--transition-fast) var(--ease-out);
+}
+
+.button:hover .icon {
+  transform: translateX(3px);
+}
+
+/* Ripple Effect for all buttons */
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lg {
+    padding: var(--spacing-3) var(--spacing-6);
+    font-size: var(--text-base);
+    min-height: 44px;
+  }
+  
+  .md {
+    padding: var(--spacing-2) var(--spacing-4);
+    min-height: 38px;
+  }
+  
+  .sm {
+    padding: var(--spacing-1) var(--spacing-3);
+    min-height: 30px;
+  }
+}
+
+/* Focus States for Accessibility */
+.button:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+}
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+  .secondary {
+    border-color: rgba(124, 77, 255, 0.2);
+  }
+  
+  .secondary:hover:not(:disabled) {
+    background: rgba(16, 185, 129, 0.1);
+  }
+  
+  .normal:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
