@@ -239,16 +239,6 @@ const VoiceWelcome = () => {
 
   return (
     <div className="voice-background">
-      {showPlayButton && !hasSpokenRef.current && (
-        <div className="voice-play-button" onClick={handlePlayClick}>
-          <div className="play-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 3L19 12L5 21V3Z" fill="currentColor"/>
-            </svg>
-          </div>
-          <span className="play-text">Escuchar Bienvenida</span>
-        </div>
-      )}
       
       {isSpeaking && (
         <div className="voice-mini-indicator" title="Asistente CodeTree activo">

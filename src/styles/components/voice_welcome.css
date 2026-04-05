@@ -7,28 +7,28 @@
   pointer-events: none;
 }
 
-/* Play button for user interaction */
+/* Play button for user interaction - TINY VERSION */
 .voice-play-button {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.95), rgba(108, 92, 231, 0.95));
   backdrop-filter: blur(8px);
-  padding: 12px 20px;
-  border-radius: 60px;
+  padding: 6px 12px;
+  border-radius: 40px;
   cursor: pointer;
   pointer-events: auto;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 2px 10px rgba(0, 212, 255, 0.4);
   animation: slideIn 0.5s ease-out;
 }
 
 .voice-play-button:hover {
   transform: scale(1.05);
   background: linear-gradient(135deg, rgba(0, 212, 255, 1), rgba(108, 92, 231, 1));
-  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.6);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.6);
 }
 
 @keyframes slideIn {
@@ -43,34 +43,35 @@
 }
 
 .play-icon {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .play-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
   color: white;
 }
 
 .play-text {
   font-family: 'Outfit', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 600;
   color: white;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
+/* Mini indicator - TINY VERSION */
 .voice-mini-indicator {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(108, 92, 231, 0.15));
   backdrop-filter: blur(8px);
   border-radius: 50%;
@@ -88,7 +89,7 @@
   box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
 }
 
-/* Pulse ring animation */
+/* Pulse ring animation - adjusted for tiny size */
 .voice-pulse-ring {
   position: relative;
   display: flex;
@@ -110,12 +111,12 @@
 
 .voice-dot {
   position: relative;
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   background: #00d4ff;
   border-radius: 50%;
   animation: pulse-dot 1.5s ease-in-out infinite;
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
+  box-shadow: 0 0 6px rgba(0, 212, 255, 0.8);
 }
 
 @keyframes pulse-ring {
@@ -140,17 +141,17 @@
   }
 }
 
-/* Professional tooltip */
+/* Professional tooltip - adjusted for tiny button */
 .voice-tooltip {
   position: absolute;
-  right: 56px;
+  right: 40px;
   white-space: nowrap;
   background: rgba(10, 15, 26, 0.95);
   backdrop-filter: blur(8px);
   color: white;
-  padding: 8px 12px;
-  border-radius: 12px;
-  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 11px;
   font-family: 'Outfit', sans-serif;
   font-weight: 500;
   letter-spacing: 0.3px;
@@ -170,13 +171,13 @@
 
 .tooltip-sub {
   display: block;
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 400;
   color: rgba(0, 212, 255, 0.8);
   margin-top: 2px;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments - even smaller on mobile */
 @media (max-width: 768px) {
   .voice-background {
     bottom: 16px;
@@ -184,41 +185,61 @@
   }
   
   .voice-mini-indicator {
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
   }
   
   .voice-dot {
-    width: 8px;
-    height: 8px;
+    width: 5px;
+    height: 5px;
   }
   
   .voice-tooltip {
-    right: 48px;
-    padding: 6px 10px;
-    font-size: 11px;
-  }
-  
-  .tooltip-sub {
+    right: 36px;
+    padding: 5px 8px;
     font-size: 10px;
   }
   
+  .tooltip-sub {
+    font-size: 8px;
+  }
+  
   .voice-play-button {
-    padding: 10px 16px;
+    padding: 5px 10px;
+    gap: 5px;
   }
   
   .play-text {
-    font-size: 12px;
+    font-size: 10px;
   }
   
   .play-icon {
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
   }
   
   .play-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Extra tiny for very small screens */
+@media (max-width: 480px) {
+  .voice-mini-indicator {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .voice-dot {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .voice-tooltip {
+    right: 32px;
+    padding: 4px 8px;
+    font-size: 9px;
   }
 }
 
