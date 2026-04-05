@@ -1,16 +1,17 @@
+// src/App.jsx
 import React from 'react';
-import VoiceWelcome from './components/voice_welcome';
 import Layout from './components/layout/layout';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/App.css';
+import VoiceWelcome from './components/VoiceWelcome';
+import './styles/globals.css';
+import './styles/index';
 
 const App = () => {
   return (
     <div className="app">
-      {/* Voice welcome - plays automatically in background */}
+      {/* Voice welcome - plays automatically when page loads */}
       <VoiceWelcome />
       
-      {/* Main layout with Bootstrap */}
+      {/* Main layout with Header, Content, and Footer */}
       <Layout />
     </div>
   );
