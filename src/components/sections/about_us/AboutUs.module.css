@@ -1,0 +1,520 @@
+/* src/components/sections/AboutUs/AboutUs.module.css */
+
+.aboutUs {
+  padding: 6rem 0;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Slogan */
+.slogan {
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slogan.animateIn {
+  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.sloganText {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  font-weight: var(--font-bold);
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.sloganText::before {
+  content: '"';
+  position: absolute;
+  left: -1.5rem;
+  top: -0.5rem;
+  font-size: 3rem;
+  opacity: 0.5;
+  color: var(--green-500);
+}
+
+.sloganText::after {
+  content: '"';
+  position: absolute;
+  right: -1.5rem;
+  bottom: -0.5rem;
+  font-size: 3rem;
+  opacity: 0.5;
+  color: var(--green-500);
+}
+
+/* Description */
+.description {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.description.animateIn {
+  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+.description p {
+  font-family: var(--font-primary);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Mission & Vision Grid */
+.missionVisionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 5rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.missionVisionGrid.animateIn {
+  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+}
+
+.missionCard,
+.visionCard {
+  background: var(--card-bg);
+  border-radius: var(--radius-2xl);
+  padding: 2rem;
+  text-align: center;
+  transition: all var(--transition-base) var(--ease-out);
+  border: 1px solid var(--card-border);
+}
+
+.missionCard:hover,
+.visionCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--green-400);
+}
+
+.cardIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-family: var(--font-primary);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--green-500);
+  margin-bottom: 1rem;
+}
+
+.cardText {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Values Section */
+.valuesSection {
+  margin-top: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.valuesSection.animateIn {
+  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+}
+
+.valuesTitle {
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: 3rem;
+}
+
+.valuesContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Values List - Fixed hover and active states */
+.valuesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.valueButton {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.valueButton:hover {
+  transform: translateX(8px);
+  border-color: var(--green-500);
+  background: var(--gar-500);
+}
+
+.valueButton:hover .valueIcon {
+  color: var(--green-500);
+  transform: scale(1.1);
+}
+
+.valueButton:hover .valueTitle {
+  color: var(--green-500);
+}
+
+/* Active state */
+.valueButton.active {
+  border-color: var(--green-500);
+  background: var(--gra-500);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.valueButton.active .valueIcon {
+  color: var(--green-500);
+}
+
+.valueButton.active .valueTitle {
+  color: var(--green-500);
+  font-weight: var(--font-semibold);
+}
+
+/* Completed state */
+.valueButton.completed {
+  opacity: 0.7;
+}
+
+.valueButton.completed .valueTitle {
+  text-decoration: line-through;
+}
+
+.valueButton.completed .checkmark {
+  color: var(--green-500);
+}
+
+.valueIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast) var(--ease-out);
+}
+
+.valueTitle {
+  flex: 1;
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+  transition: color var(--transition-fast) var(--ease-out);
+}
+
+.checkmark {
+  font-size: 1.125rem;
+  color: var(--green-500);
+  flex-shrink: 0;
+}
+
+/* Console Container */
+.consoleContainer {
+  background: #1e1e1e;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  font-family: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+}
+
+.consoleHeader {
+  background: #2d2d2d;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid #3d3d3d;
+}
+
+.consoleButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.consoleButtonRed,
+.consoleButtonYellow,
+.consoleButtonGreen {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.consoleButtonRed {
+  background: #ff5f56;
+}
+
+.consoleButtonYellow {
+  background: #ffbd2e;
+}
+
+.consoleButtonGreen {
+  background: #27c93f;
+}
+
+.consoleIcon {
+  color: #10b981;
+  font-size: 0.875rem;
+}
+
+.consoleTitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.consoleContent {
+  padding: 1.5rem;
+  min-height: 300px;
+  background: #1e1e1e;
+}
+
+.consoleLine {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.consolePrompt {
+  color: #10b981;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.consoleCommand {
+  color: #60a5fa;
+  font-size: 0.875rem;
+}
+
+.consoleOutput {
+  font-family: 'JetBrains Mono', monospace;
+  color: #e5e7eb;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 120px;
+}
+
+.consoleText {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: #e5e7eb;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.consoleCursor {
+  display: inline-block;
+  width: 2px;
+  height: 1rem;
+  background: #10b981;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Animations */
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .valuesContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .valuesList {
+    order: 2;
+  }
+  
+  .consoleContainer {
+    order: 1;
+  }
+  
+  .sloganText {
+    font-size: 1.5rem;
+  }
+  
+  .sloganText::before,
+  .sloganText::after {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutUs {
+    padding: 4rem 0;
+  }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .missionVisionGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .sloganText {
+    font-size: 1.25rem;
+  }
+  
+  .sloganText::before {
+    left: -1rem;
+    top: -0.25rem;
+  }
+  
+  .sloganText::after {
+    right: -1rem;
+    bottom: -0.25rem;
+  }
+  
+  .description p {
+    font-size: var(--text-base);
+  }
+  
+  .cardTitle {
+    font-size: var(--text-xl);
+  }
+  
+  .cardText {
+    font-size: var(--text-sm);
+  }
+  
+  .valuesTitle {
+    font-size: var(--text-2xl);
+    margin-bottom: 2rem;
+  }
+  
+  .valueButton {
+    padding: 0.75rem 1rem;
+  }
+  
+  .valueIcon {
+    font-size: 1.25rem;
+  }
+  
+  .valueTitle {
+    font-size: var(--text-sm);
+  }
+  
+  .consoleContent {
+    padding: 1rem;
+    min-height: 250px;
+  }
+  
+  .consoleText {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .sloganText {
+    font-size: 1rem;
+  }
+  
+  .sloganText::before,
+  .sloganText::after {
+    display: none;
+  }
+  
+  .missionCard,
+  .visionCard {
+    padding: 1.5rem;
+  }
+  
+  .valueButton {
+    gap: 0.75rem;
+  }
+  
+  .valueIcon {
+    font-size: 1rem;
+  }
+  
+  .consoleText {
+    font-size: 0.7rem;
+  }
+  
+  .consoleCommand {
+    font-size: 0.7rem;
+  }
+}
+
+/* Dark mode adjustments for console */
+@media (prefers-color-scheme: light) {
+  .consoleContainer {
+    border: 1px solid #e5e7eb;
+  }
+  
+  .consoleContent {
+    background: #f9fafb;
+  }
+  
+  .consoleText {
+    color: #1f2937;
+  }
+  
+  .valueButton:hover {
+    background: rgba(16, 185, 129, 0.1);
+  }
+  
+  .valueButton.active {
+    background: rgba(16, 185, 129, 0.15);
+  }
+}
