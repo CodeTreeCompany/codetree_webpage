@@ -1,0 +1,579 @@
+/* src/components/sections/HowWeWork/HowWeWork.module.css */
+
+.howWeWork {
+  padding: 4rem 0;
+  background: var(--bg-primary);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--green-500);
+  border-radius: 9999px;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.gradientText {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Toggle View Button */
+.toggleViewBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem auto 2rem;
+  padding: 0.5rem 1.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggleViewBtn:hover {
+  background: var(--green-500);
+  border-color: var(--green-500);
+  color: white;
+}
+
+/* Road Wrapper */
+.roadWrapper {
+  margin: 2rem 0;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.roadContainer {
+  position: relative;
+  width: 100%;
+}
+
+.roadSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Animated Car */
+.animatedCar {
+  position: absolute;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 20;
+}
+
+.carIcon {
+  width: 32px;
+  height: 32px;
+  color: #F59E0B;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Popup Tooltip */
+.popupTooltip {
+  position: fixed;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
+  width: 280px;
+  z-index: 100;
+  animation: popupFadeIn 0.3s ease-out;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popupHeader {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.popupIcon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.popupIcon svg {
+  width: 18px;
+  height: 18px;
+  color: white;
+}
+
+.popupTitle {
+  flex: 1;
+}
+
+.popupStep {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: rgba(255,255,255,0.2);
+  border-radius: 9999px;
+  font-size: 0.6rem;
+  color: white;
+  margin-bottom: 0.2rem;
+}
+
+.popupTitle h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.popupBody {
+  padding: 0.75rem 1rem;
+}
+
+.popupBody p {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
+}
+
+.popupPoints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.popupPoint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  background: var(--bg-tertiary);
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  color: var(--text-primary);
+}
+
+.popupPointDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+}
+
+/* Info Panel - Horizontal/Grid View (Alternative view) */
+.infoPanelGridView {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2rem 0;
+  border: 1px solid var(--border-color);
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.infoGridItem {
+  padding: 1rem 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+  background: var(--bg-tertiary);
+}
+
+.infoGridItem:hover {
+  transform: translateY(-2px);
+}
+
+.infoGridItem.active {
+  background: var(--green-500);
+  color: white;
+}
+
+.infoGridNumber {
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  display: block;
+}
+
+.infoGridTitle {
+  font-size: 0.7rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Info Panel - Detail View */
+.infoPanelDetail {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2rem 0;
+  border: 1px solid var(--border-color);
+}
+
+.infoHeader {
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.infoIcon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.infoIcon svg {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+.infoTitle {
+  flex: 1;
+}
+
+.infoStep {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: rgba(255,255,255,0.2);
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.infoTitle h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.infoTitle p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.9);
+  margin: 0.25rem 0 0;
+}
+
+.infoBody {
+  padding: 1.25rem;
+}
+
+.infoBody > p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.infoPoints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.infoPoint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  background: var(--bg-tertiary);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  color: var(--text-primary);
+}
+
+.infoPointDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.infoFooter {
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.navButton:hover:not(:disabled) {
+  background: var(--green-500);
+  border-color: var(--green-500);
+  color: white;
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.stepProgress {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.progressDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.progressDot.active {
+  width: 24px;
+  border-radius: 12px;
+}
+
+/* Highlights */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.highlightCard {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s;
+}
+
+.highlightCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--green-400);
+}
+
+.highlightIcon {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlightCard h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.highlightCard p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+
+  
+  .infoPanelDetail {
+    display: block;
+  }
+  
+  .infoPanelGridView {
+    display: none;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1023px) {
+  
+  .infoPanelDetail {
+    display: block;
+  }
+  
+  .infoPanelGridView {
+    display: none;
+  }
+  
+  .infoGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .howWeWork {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .badge {
+    font-size: 0.75rem;
+  }
+  
+  
+  .infoHeader {
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .infoFooter {
+    justify-content: center;
+  }
+  
+  .highlights {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .highlightCard {
+    padding: 1rem;
+  }
+  
+  .animatedCar {
+    display: none;
+  }
+  
+  .popupTooltip {
+    display: none;
+  }
+  
+  .infoPanelDetail {
+    display: none;
+  }
+  
+  .infoPanelGridView {
+    display: block;
+  }
+  
+  .infoGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .toggleViewBtn {
+    margin: 0.5rem auto 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .infoIcon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .infoIcon svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .infoTitle h3 {
+    font-size: 1rem;
+  }
+  
+  .infoBody {
+    padding: 1rem;
+  }
+  
+  .infoPoint {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+  
+
+}
