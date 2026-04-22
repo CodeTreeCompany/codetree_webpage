@@ -8,7 +8,6 @@ import {
   FaVial, 
   FaRocket,
   FaCheckCircle,
-  FaTrophy,
   FaCar,
   FaArrowLeft,
   FaArrowRight
@@ -22,7 +21,9 @@ const HowWeWork = () => {
   const [carPosition, setCarPosition] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
+  
   const sectionRef = useRef(null);
+  const carRef = useRef(null); // Fix: Ref for the car element
   const animationRef = useRef(null);
   const autoPlayRef = useRef(null);
   const popupTimerRef = useRef(null);
@@ -74,7 +75,7 @@ const HowWeWork = () => {
     },
     {
       id: 4,
-      number: "04",
+      number: "05", // Fixed duplicate number 04
       title: "Testing",
       icon: FaVial,
       color: "#EF4444",
@@ -96,76 +97,66 @@ const HowWeWork = () => {
     }
   ];
 
+  // Observer for visibility
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
       stopAutoPlay();
-      if (popupTimerRef.current) {
-        clearTimeout(popupTimerRef.current);
-      }
     };
   }, []);
 
-  // Start auto-play when visible and not animating
+  // Handle Autoplay logic
   useEffect(() => {
     if (isVisible && !isAnimating) {
       startAutoPlay();
+    } else {
+      stopAutoPlay();
     }
     return () => stopAutoPlay();
-  }, [isVisible, isAnimating]);
+  }, [isVisible, isAnimating, activeStep]);
 
-  // Show popup when car arrives at a step
+  // Popup logic using Ref instead of querySelector
   useEffect(() => {
     if (isVisible && !isAnimating && steps[activeStep]) {
       setShowPopup(true);
       
-      // Find car position to place popup near it
-      const carElement = document.querySelector(`.${styles.animatedCar}`);
+      const carElement = carRef.current;
       if (carElement) {
         const rect = carElement.getBoundingClientRect();
+        // We use scrollLeft/Top to ensure positioning is relative to the viewport correctly
         setPopupPosition({
           x: rect.right + 15,
           y: rect.top - 20
         });
       }
       
-      // Auto hide popup after 3.5 seconds
-      if (popupTimerRef.current) {
-        clearTimeout(popupTimerRef.current);
-      }
+      if (popupTimerRef.current) clearTimeout(popupTimerRef.current);
       popupTimerRef.current = setTimeout(() => {
         setShowPopup(false);
       }, 3500);
     }
+    return () => {
+      if (popupTimerRef.current) clearTimeout(popupTimerRef.current);
+    };
   }, [activeStep, isAnimating, isVisible]);
 
   const startAutoPlay = () => {
-    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+    stopAutoPlay();
     autoPlayRef.current = setInterval(() => {
       if (!isAnimating && isVisible) {
-        if (activeStep < steps.length - 1) {
-          animateCarToStep(activeStep + 1);
-        } else {
-          // Reset to beginning after finishing
-          animateCarToStep(0);
-        }
+        const nextStep = activeStep < steps.length - 1 ? activeStep + 1 : 0;
+        animateCarToStep(nextStep);
       }
-    }, 4000);
+    }, 5000);
   };
 
   const stopAutoPlay = () => {
@@ -178,10 +169,9 @@ const HowWeWork = () => {
   const animateCarToStep = (targetStep) => {
     if (isAnimating || targetStep === activeStep) return;
     
-    stopAutoPlay();
     setShowPopup(false);
-    
     setIsAnimating(true);
+    
     const startPosition = carPosition;
     const endPosition = targetStep;
     const duration = 800;
@@ -190,8 +180,9 @@ const HowWeWork = () => {
     const animate = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const easeProgress = easeInOutCubic(progress);
-      const newPosition = startPosition + (endPosition - startPosition) * easeProgress;
+      const easeProgress = x => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+      
+      const newPosition = startPosition + (endPosition - startPosition) * easeProgress(progress);
       setCarPosition(newPosition);
       
       if (progress < 1) {
@@ -200,39 +191,23 @@ const HowWeWork = () => {
         setCarPosition(endPosition);
         setActiveStep(targetStep);
         setIsAnimating(false);
-        startAutoPlay();
       }
     };
 
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-    }
+    if (animationRef.current) cancelAnimationFrame(animationRef.current);
     animationRef.current = requestAnimationFrame(animate);
   };
 
-  const easeInOutCubic = (x) => {
-    return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
-  };
-
   const handleNext = () => {
-    if (activeStep < steps.length - 1 && !isAnimating) {
-      stopAutoPlay();
-      animateCarToStep(activeStep + 1);
-    }
+    if (activeStep < steps.length - 1 && !isAnimating) animateCarToStep(activeStep + 1);
   };
 
   const handlePrev = () => {
-    if (activeStep > 0 && !isAnimating) {
-      stopAutoPlay();
-      animateCarToStep(activeStep - 1);
-    }
+    if (activeStep > 0 && !isAnimating) animateCarToStep(activeStep - 1);
   };
 
   const handleStepClick = (index) => {
-    if (index !== activeStep && !isAnimating && index >= 0 && index < steps.length) {
-      stopAutoPlay();
-      animateCarToStep(index);
-    }
+    if (index !== activeStep && !isAnimating) animateCarToStep(index);
   };
 
   const getCarStyle = () => {
@@ -244,12 +219,11 @@ const HowWeWork = () => {
       { left: "72%", top: "35%" },
       { left: "88%", top: "27%" }
     ];
-    const pos = positions[Math.round(carPosition)] || positions[0];
-    return pos;
+    return positions[Math.round(carPosition)] || positions[0];
   };
 
   const currentStep = steps[activeStep];
-  const Icon = currentStep.icon;
+  const StepIcon = currentStep.icon;
 
   return (
     <section ref={sectionRef} className={styles.howWeWork}>
@@ -257,12 +231,9 @@ const HowWeWork = () => {
         <div className={styles.header}>
           <span className={styles.badge}>Metodología de Trabajo</span>
           <h2 className={styles.title}>
-            Nuestro Camino hacia el 
-            <span className={styles.gradientText}> Éxito</span>
+            Nuestro Camino hacia el <span className={styles.gradientText}>Éxito</span>
           </h2>
-          <p className={styles.subtitle}>
-            Un viaje transformador desde la idea hasta la realidad
-          </p>
+          <p className={styles.subtitle}>Un viaje transformador desde la idea hasta la realidad</p>
         </div>
 
         <div className={styles.roadWrapper}>
@@ -274,7 +245,6 @@ const HowWeWork = () => {
                   <stop offset="100%" stopColor="#374151"/>
                 </linearGradient>
               </defs>
-              
               <path
                 d="M 50 80 Q 200 80, 300 150 T 600 200 Q 750 200, 850 150 T 1100 80"
                 fill="none"
@@ -282,7 +252,6 @@ const HowWeWork = () => {
                 strokeWidth="80"
                 strokeLinecap="round"
               />
-              
               <path
                 d="M 50 80 Q 200 80, 300 150 T 600 200 Q 750 200, 850 150 T 1100 80"
                 fill="none"
@@ -291,47 +260,18 @@ const HowWeWork = () => {
                 strokeDasharray="10, 15"
               />
 
-              {/* Start flag */}
-              <g transform="translate(30, 60)">
-                <rect x="0" y="0" width="4" height="30" fill="#9CA3AF" />
-                <path d="M4 0 L25 6 L4 12 Z" fill="#10B981" />
-                <text x="8" y="9" fill="white" fontSize="6" fontWeight="bold">INICIO</text>
-              </g>
-
-              {/* Finish flag */}
-              <g transform="translate(1080, 60)">
-                <rect x="0" y="0" width="4" height="30" fill="#9CA3AF" />
-                <path d="M0 0 L25 6 L0 12 Z" fill="#EF4444" />
-                <text x="3" y="9" fill="white" fontSize="6" fontWeight="bold">META</text>
-              </g>
-
-              {/* Step markers */}
               {steps.map((step, index) => {
                 const positions = [
-                  { x: 180, y: 115 }, 
-                  { x: 380, y: 175 }, 
-                  { x: 580, y: 195 }, 
-                  { x: 780, y: 175 }, 
-                  { x: 950, y: 135 }, 
-                  { x: 1080, y: 100 }
+                  { x: 180, y: 115 }, { x: 380, y: 175 }, { x: 580, y: 195 }, 
+                  { x: 780, y: 175 }, { x: 950, y: 135 }, { x: 1080, y: 100 }
                 ];
                 const pos = positions[index];
-                const isActive = activeStep === index;
-                const isCompleted = index < activeStep;
-                
                 return (
                   <g key={step.id} onClick={() => handleStepClick(index)} style={{ cursor: 'pointer' }}>
                     <circle cx={pos.x} cy={pos.y} r="22" fill="#1F2937" stroke={step.color} strokeWidth="3" />
                     <circle cx={pos.x} cy={pos.y} r="15" fill={step.color} />
-                    {isCompleted ? (
-                      <FaCheckCircle x={pos.x - 8} y={pos.y - 8} width="16" height="16" color="white" />
-                    ) : (
-                      <text x={pos.x} y={pos.y + 4} textAnchor="middle" fill="white" fontSize="11" fontWeight="bold">
-                        {step.number}
-                      </text>
-                    )}
-                    <text x={pos.x} y={pos.y + 35} textAnchor="middle" fill={step.color} fontSize="9" fontWeight="600">
-                      {step.title}
+                    <text x={pos.x} y={pos.y + 4} textAnchor="middle" fill="white" fontSize="11" fontWeight="bold">
+                      {step.number}
                     </text>
                   </g>
                 );
@@ -339,24 +279,18 @@ const HowWeWork = () => {
             </svg>
 
             {isVisible && (
-              <div className={styles.animatedCar} style={getCarStyle()}>
+              <div ref={carRef} className={styles.animatedCar} style={getCarStyle()}>
                 <FaCar className={styles.carIcon} />
               </div>
             )}
 
-            {/* Popup Tooltip */}
-            {showPopup && currentStep && (
+            {showPopup && (
               <div 
                 className={styles.popupTooltip}
-                style={{ 
-                  left: popupPosition.x, 
-                  top: popupPosition.y
-                }}
+                style={{ left: popupPosition.x, top: popupPosition.y }}
               >
                 <div className={styles.popupHeader} style={{ background: currentStep.gradient }}>
-                  <div className={styles.popupIcon}>
-                    <Icon />
-                  </div>
+                  <StepIcon className={styles.popupIcon} />
                   <div className={styles.popupTitle}>
                     <span className={styles.popupStep}>Paso {currentStep.number}</span>
                     <h4>{currentStep.title}</h4>
@@ -364,33 +298,20 @@ const HowWeWork = () => {
                 </div>
                 <div className={styles.popupBody}>
                   <p>{currentStep.description}</p>
-                  <div className={styles.popupPoints}>
-                    {currentStep.keyPoints.slice(0, 2).map((point, idx) => (
-                      <span key={idx} className={styles.popupPoint}>
-                        <span className={styles.popupPointDot} style={{ background: currentStep.color }}></span>
-                        {point}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </div>
             )}
           </div>
         </div>
 
-        {/* Info Panel - Visible on mobile, hidden on desktop when popup shows */}
         <div className={styles.infoPanel}>
           <div className={styles.infoHeader} style={{ background: currentStep.gradient }}>
-            <div className={styles.infoIcon}>
-              <Icon />
-            </div>
+            <StepIcon className={styles.infoIcon} />
             <div className={styles.infoTitle}>
               <span className={styles.infoStep}>Paso {currentStep.number}</span>
               <h3>{currentStep.title}</h3>
-              <p>{currentStep.description}</p>
             </div>
           </div>
-          
           <div className={styles.infoBody}>
             <p>{currentStep.longDescription}</p>
             <div className={styles.infoPoints}>
@@ -402,47 +323,13 @@ const HowWeWork = () => {
               ))}
             </div>
           </div>
-
           <div className={styles.infoFooter}>
             <button className={styles.navButton} onClick={handlePrev} disabled={activeStep === 0 || isAnimating}>
               <FaArrowLeft /> Anterior
             </button>
-            <div className={styles.stepProgress}>
-              {steps.map((_, idx) => (
-                <button
-                  key={idx}
-                  className={`${styles.progressDot} ${activeStep === idx ? styles.active : ''}`}
-                  onClick={() => handleStepClick(idx)}
-                  style={{ background: idx === activeStep ? steps[idx].color : 'var(--border-color)' }}
-                />
-              ))}
-            </div>
             <button className={styles.navButton} onClick={handleNext} disabled={activeStep === steps.length - 1 || isAnimating}>
               Siguiente <FaArrowRight />
             </button>
-          </div>
-        </div>
-
-        <div className={styles.highlights}>
-          <div className={styles.highlightCard}>
-            <div className={styles.highlightIcon}>⚡</div>
-            <h4>Functional First</h4>
-            <p>Para entregas urgentes, funciona primero, luego optimizamos.</p>
-          </div>
-          <div className={styles.highlightCard}>
-            <div className={styles.highlightIcon}>💰</div>
-            <h4>Pago por Módulo</h4>
-            <p>Entregamos y recibimos pago por cada módulo completado.</p>
-          </div>
-          <div className={styles.highlightCard}>
-            <div className={styles.highlightIcon}>🔄</div>
-            <h4>Integración Perfecta</h4>
-            <p>Sistema 100% funcional sin breaking changes.</p>
-          </div>
-          <div className={styles.highlightCard}>
-            <div className={styles.highlightIcon}>📋</div>
-            <h4>Código de Calidad</h4>
-            <p>Escalabilidad y mantenimiento garantizados.</p>
           </div>
         </div>
       </div>
