@@ -1,19 +1,17 @@
-// src/App.jsx
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/layout';
-import VoiceWelcome from './components/VoiceWelcome';
+import Projects from './pages/projects';
 import './styles/globals.css';
-import './styles/index';
 
 const App = () => {
   return (
-    <div className="app">
-      {/* Voice welcome - plays automatically when page loads */}
-      <VoiceWelcome />
-      
-      {/* Main layout with Header, Content, and Footer */}
-      <Layout />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />} />
+        <Route path="/proyectos" element={<Layout><Projects /></Layout>} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
