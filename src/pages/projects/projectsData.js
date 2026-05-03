@@ -77,8 +77,9 @@ export const projectsData = [
     solution: "Implementación de PWA con IndexedDB y sistema de colas para sincronización.",
     impact: "Optimización esperada del 40% en gestión ganadera para productores rurales.",
     images: [
-            "/assets/projects/hatomaster/feria30.jpg",
+      "/assets/projects/hatomaster/feria30.jpg",
       "/assets/projects/hatomaster/las_cabras.jpg",
+      "/assets/projects/hatomaster/3er_lugar.jpg",
       "/assets/projects/hatomaster/inventory.png",
       "/assets/projects/hatomaster/inventory-light.png",
       "/assets/projects/hatomaster/milk.png",
