@@ -1,0 +1,5 @@
+@echo off
+set CODETREE_TUNNEL_TOKEN=eyJhIjoiMDYxODZhNjg4OTgxNDJhMDVlMDRkNDVjOGM3NTI3ODYiLCJ0IjoiNWM5YzU2MDQtYWRjOC00OTQwLWI3YzItMWFkYmIzMWUwMjBiIiwicyI6Ik0ySmxPVGRoTVRBdE1qRmlZeTAwTmpkbUxUa3haakV0WlRVeFpHRXpaVEprTmpSaCJ9
+
+echo Variable de token configurada
+echo Para usar: cloudflared tunnel run --token %CODETREE_TUNNEL_TOKEN%

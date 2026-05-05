@@ -1,0 +1,9 @@
+tunnel: 5c9c5604-adc8-4940-b7c2-1adbb31e020b
+credentials-file: C:\Users\PC\.cloudflared\credentials.json
+
+ingress:
+  - hostname: codetreecompany.com
+    service: http://127.0.0.1:80
+  - hostname: www.codetreecompany.com
+    service: http://127.0.0.1:80
+  - service: http_status:404

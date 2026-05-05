@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  codetree-web:
+    build: .
+    container_name: codetree-web
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    networks:
+      - codetree-network
+
+networks:
+  codetree-network:
+    driver: bridge
