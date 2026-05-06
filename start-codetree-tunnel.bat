@@ -1,0 +1,8 @@
+@echo off
+echo Iniciando tunnel de CodeTree...
+echo Este tunnel NO afecta a saboresdelcielo.org
+echo.
+
+cloudflared.exe tunnel run --token eyJhIjoiMDYxODZhNjg4OTgxNDJhMDVlMDRkNDVjOGM3NTI3ODYiLCJ0IjoiNWM5YzU2MDQtYWRjOC00OTQwLWI3YzItMWFkYmIzMWUwMjBiIiwicyI6Ik0ySmxPVGRoTVRBdE1qRmlZeTAwTmpkbUxUa3haakV0WlRVeFpHRXpaVEprTmpSaCJ9
+
+pause

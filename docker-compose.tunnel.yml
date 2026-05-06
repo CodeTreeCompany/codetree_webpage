@@ -1,0 +1,7 @@
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: codetree-tunnel
+    restart: unless-stopped
+    network_mode: "host"
+    command: tunnel --no-autoupdate run --token eyJhIjoiMDYxODZhNjg4OTgxNDJhMDVlMDRkNDVjOGM3NTI3ODYiLCJ0IjoiNWM5YzU2MDQtYWRjOC00OTQwLWI3YzItMWFkYmIzMWUwMjBiIiwicyI6Ik0ySmxPVGRoTVRBdE1qRmlZeTAwTmpkbUxUa3haakV0WlRVeFpHRXpaVEprTmpSaCJ9

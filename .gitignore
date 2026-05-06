@@ -15,6 +15,7 @@
 /.nyc_output
 /.jest-cache
 /.cache
+.vs/
 
 # Production
 /build
