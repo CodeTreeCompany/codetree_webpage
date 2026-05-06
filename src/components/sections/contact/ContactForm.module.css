@@ -1,0 +1,449 @@
+/* src/components/sections/Contact/ContactForm.module.css */
+
+.contactSection {
+  padding: 6rem 0;
+  background: var(--bg-primary);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--green-500);
+  border-radius: 9999px;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.gradientText {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Contact Wrapper */
+.contactWrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  background: var(--card-bg);
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border-color);
+}
+
+/* Contact Info Sidebar */
+.contactInfo {
+  background: linear-gradient(135deg, var(--green-500), var(--blue-500));
+  padding: 2rem;
+  color: white;
+}
+
+.infoCard {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.infoIcon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.infoIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.infoCard h4 {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.infoCard p {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.socialLinks {
+  margin: 2rem 0;
+}
+
+.socialLinks h4 {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.socialIcon:hover {
+  background: white;
+  color: var(--green-500);
+  transform: translateY(-3px);
+}
+
+.quoteBox {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-left: 3px solid white;
+  font-style: italic;
+}
+
+.quoteBox p {
+  font-family: 'Outfit', var(--font-secondary);
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Contact Form */
+.contactForm {
+  padding: 2rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.inputIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--green-500);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.formGroup input.error,
+.formGroup select.error,
+.formGroup textarea.error {
+  border-color: #EF4444;
+}
+
+.errorMessage {
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  color: #EF4444;
+}
+
+.charCount {
+  font-family: var(--font-primary);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.submitBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 0.75rem;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.whatsappBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #25D366;
+  border: none;
+  border-radius: 0.75rem;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.whatsappBtn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 0.75rem;
+  border-left: 4px solid #10B981;
+}
+
+.successMessage svg {
+  width: 24px;
+  height: 24px;
+  color: #10B981;
+  flex-shrink: 0;
+}
+
+.successMessage strong {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.successMessage p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Add to existing ContactForm.module.css */
+
+.modalForm {
+  padding: 0;
+}
+
+.modalForm .formRow {
+  margin-bottom: 0.75rem;
+}
+
+.modalForm .formGroup input,
+.modalForm .formGroup select,
+.modalForm .formGroup textarea {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+.modalForm .submitBtn,
+.modalForm .whatsappBtn {
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+}
+
+.modalForm .successMessage {
+  margin-top: 0.75rem;
+  padding: 0.6rem;
+}
+
+.modalForm .successMessage svg {
+  width: 18px;
+  height: 18px;
+}
+
+.modalForm .successMessage strong {
+  font-size: 0.75rem;
+}
+
+.modalForm .successMessage p {
+  font-size: 0.65rem;
+}
+
+/* Animations */
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contactWrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .contactInfo {
+    order: 2;
+  }
+  
+  .contactForm {
+    order: 1;
+  }
+  
+  .infoCard {
+    display: inline-block;
+    width: calc(33.33% - 1rem);
+    margin-right: 1rem;
+    vertical-align: top;
+  }
+  
+  .socialLinks, .quoteBox {
+    display: inline-block;
+    width: calc(50% - 1rem);
+    vertical-align: top;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .formActions {
+    flex-direction: column;
+  }
+  
+  .submitBtn, .whatsappBtn {
+    width: 100%;
+  }
+  
+  .infoCard {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .socialLinks, .quoteBox {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .badge {
+    font-size: 0.75rem;
+  }
+  
+  .contactForm {
+    padding: 1.5rem;
+  }
+}
