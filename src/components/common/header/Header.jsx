@@ -14,7 +14,7 @@ const Header = () => {
     { label: 'Acerca de nosotros', href: '#about' },
     { label: 'Servicios', href: '/servicios' },
     { label: 'Proyectos', href: '/proyectos' },
-    { label: 'Equipo', href: '/team' },
+    { label: '¿Por qué elegirnos?', href: '#why-us' },
   ];
 
   useEffect(() => {

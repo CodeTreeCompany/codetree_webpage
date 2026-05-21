@@ -1,3 +1,4 @@
+// src/components/layout/Layout.jsx
 import React from 'react';
 import Header from '../common/header/Header';
 import Footer from '../common/footer/Footer';
@@ -6,8 +7,8 @@ import AboutUs from '../sections/about_us/AboutUs';
 import Services from '../sections/services/Services';
 import HowWeWork from '../sections/how_we_work/HowWeWork';
 import Pricing from '../sections/pricing/Pricing';
+import WhyChooseUs from '../sections/why_choose_us/WhyChooseUs';
 import styles from './Layout.module.css';
-import ChatPricing from '../sections/pricing/ChatPricing';
 
 const Layout = ({ children }) => {
   return (
@@ -28,10 +29,10 @@ const Layout = ({ children }) => {
             <section id="process">
               <HowWeWork />
             </section>
-            <section id="cotization">
-              <Pricing />
-              <ChatPricing />
+            <section id="why-us">
+              <WhyChooseUs />
             </section>
+            
           </>
         )}
       </main>
