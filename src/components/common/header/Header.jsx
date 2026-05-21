@@ -1,4 +1,3 @@
-// src/components/layout/Header.jsx
 import React, { useState, useEffect } from 'react';
 import Button from '../button/Button';
 import Modal from '../ui/Modal';
@@ -13,7 +12,7 @@ const Header = () => {
   const navItems = [
     { label: 'Inicio', href: '/' },
     { label: 'Acerca de nosotros', href: '#about' },
-    { label: 'Servicios', href: '/services' },
+    { label: 'Servicios', href: '/servicios' },
     { label: 'Proyectos', href: '/proyectos' },
     { label: 'Equipo', href: '/team' },
   ];
@@ -49,7 +48,6 @@ const Header = () => {
     <>
       <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
         <nav className={styles.navbar}>
-          {/* Logo with Image */}
           <div className={styles.logo}>
             <a href="/" className={styles.logoLink}>
               <img 
@@ -63,7 +61,6 @@ const Header = () => {
             </a>
           </div>
 
-          {/* Desktop Navigation */}
           <ul className={styles.navLinks}>
             {navItems.map((item, index) => (
               <li key={index}>
@@ -74,14 +71,12 @@ const Header = () => {
             ))}
           </ul>
 
-          {/* Contact Button (Desktop) */}
           <div className={styles.contactBtn}>
             <Button variant="primary" size="md" onClick={openContactModal}>
               Contáctanos
             </Button>
           </div>
 
-          {/* Hamburger Menu Button */}
           <button
             className={`${styles.hamburger} ${isMenuOpen ? styles.active : ''}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -93,7 +88,6 @@ const Header = () => {
           </button>
         </nav>
 
-        {/* Mobile Menu */}
         <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ''}`}>
           <ul className={styles.mobileNavLinks}>
             {navItems.map((item, index) => (
@@ -116,7 +110,6 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Contact Modal - Reusing ContactForm component */}
       <Modal isOpen={isContactModalOpen} onClose={closeContactModal} title="Contáctanos">
         <ContactForm isModal={true} onSuccess={closeContactModal} />
       </Modal>
