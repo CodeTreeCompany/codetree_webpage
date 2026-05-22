@@ -15,6 +15,9 @@ import {
   FaGlobe
 } from 'react-icons/fa';
 import styles from './WhyChooseUs.module.css';
+import Button from '../../common/button/Button';
+import Modal from '../../common/ui/Modal';
+import ContactForm from '../contact/ContactForm';
 
 const WhyChooseUs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -160,11 +163,22 @@ const WhyChooseUs = () => {
     };
   }, []);
 
+
+  const openContactModal = () => {
+        setIsContactModalOpen(true);
+    };
+
+  const closeContactModal = () => {
+        setIsContactModalOpen(false);
+    };
+
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const currentAdvantage = advantages[activeTab];
   const AdvantageIcon = currentAdvantage.icon;
 
-  return (
-    <section ref={sectionRef} className={styles.whyChooseUs}>
+    return (
+  <>
+            <section ref={sectionRef} className={styles.whyChooseUs}>
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.animateIn : ''}`}>
           <span className={styles.badge}>¿Por qué elegirnos?</span>
@@ -268,16 +282,30 @@ const WhyChooseUs = () => {
           <div className={styles.ctaContent}>
             <h4>¿Listo para trabajar con el mejor equipo?</h4>
             <p>Contáctanos hoy y descubre por qué somos la mejor opción para tu proyecto</p>
-            <button className={styles.ctaButton} onClick={() => {
-              document.querySelector('[class*="contactBtn"]')?.click();
-            }}>
-              Comenzar ahora
-            </button>
+                      <Button
+                          variant="primary"
+                          size="lg"
+                          onClick={openContactModal}
+                      >
+                          Comenzar hoy
+                      </Button>
           </div>
         </div>
       </div>
-    </section>
-  );
+            </section>
+
+            <Modal
+                isOpen={isContactModalOpen}
+                onClose={closeContactModal}
+                title="Contáctanos"
+            >
+                <ContactForm
+                    isModal={true}
+                    onSuccess={closeContactModal}
+                />
+            </Modal>
+        </>
+    );
 };
 
 export default WhyChooseUs;
