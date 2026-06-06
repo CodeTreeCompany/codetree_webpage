@@ -1,0 +1,601 @@
+/* src/pages/Careers/Careers.module.css */
+
+.careersPage {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  padding: 6rem 0 4rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.heroTitle {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.gradientText {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 9999px;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  gap: 0.75rem;
+}
+
+.secondaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #25D366;
+  border: none;
+  border-radius: 9999px;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondaryBtn:hover {
+  transform: translateY(-2px);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Info Cards */
+.infoSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.infoCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.infoCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--green-400);
+}
+
+.infoNumber {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--green-500);
+  margin-bottom: 0.5rem;
+}
+
+.infoLabel {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.infoCard p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Section Titles */
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Areas Grid */
+.areasSection {
+  margin-bottom: 4rem;
+}
+
+.areasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.areaCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.areaCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--green-400);
+}
+
+.areaCard.active {
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
+}
+
+.areaIcon {
+  width: 55px;
+  height: 55px;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.areaIcon svg {
+  width: 30px;
+  height: 30px;
+  color: white;
+}
+
+.areaCard h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.areaCard p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Area Detail */
+.areaDetail {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 4rem;
+}
+
+.areaDetailHeader {
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.areaDetailIcon {
+  width: 35px;
+  height: 35px;
+  color: white;
+}
+
+.areaDetailHeader h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.areaDetailContent {
+  padding: 1.25rem;
+}
+
+.areaDetailContent ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+.areaDetailContent li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+  border-radius: 0.5rem;
+}
+
+.areaDetailContent li svg {
+  width: 16px;
+  height: 16px;
+  color: var(--green-500);
+}
+
+/* Advantages */
+.advantagesSection {
+  margin-bottom: 4rem;
+}
+
+.advantagesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.advantageCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.advantageCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--green-400);
+  transition: all 0.3s;
+}
+
+.advantageIcon {
+  width: 55px;
+  height: 55px;
+  background: rgba(16,185,129,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.advantageIcon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--green-500);
+}
+
+.advantageCard h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.advantageCard p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Benefits */
+.benefitsSection {
+  margin-bottom: 4rem;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.benefitCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+}
+
+.benefitIcon {
+  width: 45px;
+  height: 45px;
+  background: rgba(16,185,129,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.benefitIcon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--green-500);
+}
+
+.benefitCard h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.benefitCard p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Process Steps */
+.processSection {
+  margin-bottom: 4rem;
+}
+
+.processSteps {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.processStep {
+  flex: 1;
+  text-align: center;
+  padding: 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+}
+
+.stepNumber {
+  width: 36px;
+  height: 36px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  margin: 0 auto 0.75rem;
+}
+
+.processStep h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.processStep p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.processArrow {
+  color: var(--green-500);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Testimonials */
+.testimonialsSection {
+  margin-bottom: 4rem;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.testimonialCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+
+.testimonialCard p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonialAuthor {
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.75rem;
+}
+
+.testimonialAuthor strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.testimonialAuthor span {
+  font-size: 0.7rem;
+  color: var(--green-500);
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, var(--green-500), var(--blue-500));
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.ctaContent h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.ctaContent p {
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1.5rem;
+}
+
+.ctaButton {
+  padding: 0.7rem 1.8rem;
+  background: white;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  color: var(--green-500);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  gap: 0.75rem;
+  transition: all 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 0 3rem;
+  }
+  
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+  
+  .container {
+    padding: 2rem 1rem;
+  }
+  
+  .infoSection {
+    grid-template-columns: 1fr;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  
+  .processSteps {
+    flex-direction: column;
+  }
+  
+  .processArrow {
+    transform: rotate(90deg);
+    justify-content: center;
+  }
+  
+  .heroButtons {
+    flex-direction: column;
+  }
+  
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .benefitCard {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .areaDetailHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.5rem;
+  }
+  
+  .ctaSection {
+    padding: 1.5rem;
+  }
+  
+  .ctaContent h3 {
+    font-size: 1.2rem;
+  }
+  
+  .areaDetailContent ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animateIn {
+  animation: slideUp 0.5s ease forwards;
+}
+
+.infoSection,
+.areasSection,
+.areaDetail,
+.advantagesSection,
+.benefitsSection,
+.processSection,
+.testimonialsSection,
+.ctaSection {
+  opacity: 1;
+  transform: translateY(0);
+}

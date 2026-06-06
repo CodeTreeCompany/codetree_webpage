@@ -57,7 +57,7 @@ const Footer = () => {
       items: [
         { text: 'FAQ', href: '/faq' },
         { text: 'Soporte', href: '/support' },
-        { text: 'Carreras', href: '/careers' },
+        { text: 'Carreras', href: '/carreras' },
       ]
     },
     {
