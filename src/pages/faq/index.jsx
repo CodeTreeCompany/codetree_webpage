@@ -217,9 +217,12 @@ const FAQ = () => {
             <h3>¿No encontraste lo que buscabas?</h3>
             <p>Contáctanos directamente y resolveremos todas tus dudas</p>
             <div className={styles.ctaButtons}>
-              <button className={styles.ctaButton} onClick={() => window.location.href = '/contacto'}>
-                <FaEnvelope /> Contactar por Email
-              </button>
+              <button 
+  className={styles.ctaButton} 
+  onClick={() => window.location.href = 'mailto:codetreecompany@gmail.com'}
+>
+  <FaEnvelope /> Contactar por Email
+</button>
               <button className={styles.whatsappButton} onClick={handleWhatsApp}>
                 <FaWhatsapp /> Contactar por WhatsApp
               </button>

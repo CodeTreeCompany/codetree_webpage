@@ -5,6 +5,7 @@ import Projects from './pages/projects/index.jsx';
 import Careers from './pages/careers/index.jsx';
 import ServicesPage from './pages/services/index.jsx';
 import Support from './pages/support/Support.jsx';
+import FAQ from './pages/FAQ/index.jsx';
 import './styles/globals.css';
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/support" element={<Layout><Support /></Layout>} />
         <Route path="/proyectos" element={<Layout><Projects /></Layout>} />
         <Route path="/carreras" element={<Layout><Careers /></Layout>} />
+        <Route path="faq" element={<Layout><FAQ /></Layout>} />
       </Routes>
     </BrowserRouter>
   );
