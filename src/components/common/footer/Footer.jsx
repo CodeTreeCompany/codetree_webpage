@@ -1,4 +1,4 @@
-// src/components/layout/Footer/Footer.jsx - Updated with all modals
+// src/components/layout/Footer/Footer.jsx
 import React, { useState } from 'react';
 import { 
   FaLinkedinIn, 
@@ -12,6 +12,8 @@ import {
   FaTiktok,
   FaPinterest
 } from 'react-icons/fa';
+import { toast, Toaster } from 'react-hot-toast';
+import emailjs from '@emailjs/browser';
 import Modal from '../ui/Modal';
 import TermsAndConditions from '../ui/TermsAndConditions';
 import PrivacyPolicy from '../ui/PrivacyPolicy';
@@ -22,14 +24,19 @@ const Footer = () => {
   const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
   const [isCookiesModalOpen, setIsCookiesModalOpen] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  // EmailJS configuration
+  const EMAILJS_SERVICE_ID = 'service_irvthxe';
+  const EMAILJS_TEMPLATE_ID = 'template_n85innp';
+  const EMAILJS_PUBLIC_KEY = 'hY2LpwoPAxGjcXKrS';
 
   const socialIcons = [
     { icon: FaLinkedinIn, url: 'https://www.linkedin.com/in/elmer-urbina-meneses-290a3b208/', label: 'LinkedIn' },
     { icon: FaFacebookF, url: 'https://www.facebook.com/share/1DzCvDjzUj/', label: 'Facebook' },
     { icon: FaInstagram, url: 'https://www.instagram.com/ct_hatomaster2026/', label: 'Instagram' },
     { icon: FaGithub, url: 'https://github.com/Foxomax', label: 'GitHub' }
-    
-   
   ];
 
   const footerSections = [
@@ -66,6 +73,52 @@ const Footer = () => {
     }
   ];
 
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  const handleNewsletterSubmit = async () => {
+    if (!newsletterEmail.trim()) {
+      toast.error('Por favor, ingresa tu correo electrónico');
+      return;
+    }
+    
+    if (!validateEmail(newsletterEmail)) {
+      toast.error('Por favor, ingresa un correo electrónico válido');
+      return;
+    }
+
+    setIsSubscribing(true);
+
+    try {
+      const templateParams = {
+        user_email: newsletterEmail,
+        subscription_date: new Date().toLocaleString('es-ES', {
+          dateStyle: 'full',
+          timeStyle: 'medium'
+        }),
+        source: 'Footer VIP Newsletter'
+      };
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+      
+      toast.success('¡Suscripción exitosa! Gracias por unirte al boletín VIP.');
+      setNewsletterEmail('');
+      
+    } catch (error) {
+      console.error('Error sending subscription:', error);
+      toast.error('Error al suscribirte. Por favor, intenta de nuevo.');
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
+
   const handleModalOpen = (modalType) => {
     if (modalType === 'terms') {
       setIsTermsModalOpen(true);
@@ -78,6 +131,8 @@ const Footer = () => {
 
   return (
     <>
+      <Toaster position="top-right" />
+      
       <footer className={styles.footer}>
         <div className={styles.footerContainer}>
           <div className={styles.socialSection}>
@@ -113,7 +168,14 @@ const Footer = () => {
                           <input
                             type="email"
                             placeholder={item.text}
+                            value={newsletterEmail}
+                            onChange={(e) => setNewsletterEmail(e.target.value)}
                             className={styles.emailInput}
+                            onKeyPress={(e) => {
+                              if (e.key === 'Enter') {
+                                handleNewsletterSubmit();
+                              }
+                            }}
                           />
                         </li>
                       );
@@ -121,8 +183,12 @@ const Footer = () => {
                     if (item.isButton) {
                       return (
                         <li key={itemIndex}>
-                          <button className={styles.registerBtn}>
-                            {item.text}
+                          <button 
+                            className={styles.registerBtn}
+                            onClick={handleNewsletterSubmit}
+                            disabled={isSubscribing}
+                          >
+                            {isSubscribing ? 'Enviando...' : item.text}
                           </button>
                         </li>
                       );
