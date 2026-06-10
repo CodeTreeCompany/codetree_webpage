@@ -29,46 +29,6 @@ const Services = () => {
       gradient: "linear-gradient(135deg, #2563EB, #1D4ED8)"
     },
     {
-      id: 3,
-      title: "Soluciones SaaS",
-      description: "Ofrecemos plataformas en la nube escalables que se adaptan al crecimiento de tu empresa.",
-      fullDescription: "Desarrollamos productos SaaS (Software as a Service) con arquitectura multi-tenant, facturación integrada y escalabilidad automática. Tus clientes acceden desde cualquier lugar con total seguridad y disponibilidad 24/7.",
-      color: "#7C3AED",
-      gradient: "linear-gradient(135deg, #7C3AED, #6D28D9)"
-    },
-    {
-      id: 4,
-      title: "Ciberseguridad",
-      description: "Protegemos tu infraestructura y datos con soluciones avanzadas de seguridad informática.",
-      fullDescription: "Implementamos auditorías de seguridad, pruebas de penetración, cifrado de datos y monitoreo continuo. Aseguramos el cumplimiento de normativas para proteger tu activo más valioso: la información.",
-      color: "#EF4444",
-      gradient: "linear-gradient(135deg, #EF4444, #DC2626)"
-    },
-    {
-      id: 5,
-      title: "Apps Móviles",
-      description: "Desarrollamos aplicaciones nativas e híbridas para iOS y Android con experiencias excepcionales.",
-      fullDescription: "Creamos apps móviles con React Native, Flutter o desarrollo nativo según tus necesidades. Desde e-commerce hasta aplicaciones empresariales, entregamos experiencias fluidas, rápidas y atractivas.",
-      color: "#F59E0B",
-      gradient: "linear-gradient(135deg, #F59E0B, #D97706)"
-    },
-    {
-      id: 6,
-      title: "Transformación Digital",
-      description: "Acompañamos a tu empresa en el proceso de transformación digital con consultoría especializada.",
-      fullDescription: "Analizamos tus procesos actuales, identificamos oportunidades de mejora y diseñamos una hoja de ruta para tu transformación digital. Capacitamos a tu equipo y te acompañamos en cada paso.",
-      color: "#EC4899",
-      gradient: "linear-gradient(135deg, #EC4899, #DB2777)"
-    },
-    {
-      id: 7,
-      title: "DevOps",
-      description: "Automatizamos la entrega y mantenimiento de servidores con prácticas DevOps de clase mundial.",
-      fullDescription: "Implementamos pipelines CI/CD, contenedores Docker, orquestación Kubernetes y monitoreo continuo. Optimizamos la infraestructura en la nube (AWS, Azure, GCP) para garantizar alta disponibilidad, escalabilidad automática y despliegues sin downtime.",
-      color: "#06B6D4",
-      gradient: "linear-gradient(135deg, #06B6D4, #0891B2)"
-    },
-    {
       id: 8,
       title: "Data Analysis",
       description: "Transformamos tus datos en insights accionables con dashboards interactivos y visualizaciones avanzadas.",
@@ -76,14 +36,6 @@ const Services = () => {
       color: "#8B5CF6",
       gradient: "linear-gradient(135deg, #8B5CF6, #7C3AED)"
     },
-    {
-      id: 9,
-      title: "Software Contable",
-      description: "Desarrollamos sistemas contables robustos que cumplen con las normativas fiscales vigentes.",
-      fullDescription: "Creamos software de contabilidad personalizado con módulos de facturación electrónica, libros contables, conciliaciones bancarias, reportes fiscales y gestión de inventarios. Cumplimos con las normativas tributarias de cada país y garantizamos la integridad de los datos financieros.",
-      color: "#14B8A6",
-      gradient: "linear-gradient(135deg, #14B8A6, #0D9488)"
-    }
   ];
 
   // SVG Components for each service

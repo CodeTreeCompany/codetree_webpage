@@ -277,20 +277,7 @@ const WhyChooseUs = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className={`${styles.ctaSection} ${isVisible ? styles.animateIn : ''}`}>
-          <div className={styles.ctaContent}>
-            <h4>¿Listo para trabajar con el mejor equipo?</h4>
-            <p>Contáctanos hoy y descubre por qué somos la mejor opción para tu proyecto</p>
-                      <Button
-                          variant="primary"
-                          size="lg"
-                          onClick={openContactModal}
-                      >
-                          Comenzar hoy
-                      </Button>
-          </div>
-        </div>
+       
       </div>
             </section>
 
