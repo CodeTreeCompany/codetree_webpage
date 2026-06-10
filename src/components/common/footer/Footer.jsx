@@ -24,16 +24,12 @@ const Footer = () => {
   const [isCookiesModalOpen, setIsCookiesModalOpen] = useState(false);
 
   const socialIcons = [
-    { icon: FaLinkedinIn, url: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: FaTwitter, url: 'https://twitter.com', label: 'Twitter' },
-    { icon: FaFacebookF, url: 'https://facebook.com', label: 'Facebook' },
-    { icon: FaInstagram, url: 'https://instagram.com', label: 'Instagram' },
-    { icon: FaGithub, url: 'https://github.com', label: 'GitHub' },
-    { icon: FaYoutube, url: 'https://youtube.com', label: 'YouTube' },
-    { icon: FaDiscord, url: 'https://discord.com', label: 'Discord' },
-    { icon: FaTelegram, url: 'https://telegram.org', label: 'Telegram' },
-    { icon: FaTiktok, url: 'https://tiktok.com', label: 'TikTok' },
-    { icon: FaPinterest, url: 'https://pinterest.com', label: 'Pinterest' },
+    { icon: FaLinkedinIn, url: 'https://www.linkedin.com/in/elmer-urbina-meneses-290a3b208/', label: 'LinkedIn' },
+    { icon: FaFacebookF, url: 'https://www.facebook.com/share/1DzCvDjzUj/', label: 'Facebook' },
+    { icon: FaInstagram, url: 'https://www.instagram.com/ct_hatomaster2026/', label: 'Instagram' },
+    { icon: FaGithub, url: 'https://github.com/Foxomax', label: 'GitHub' }
+    
+   
   ];
 
   const footerSections = [
