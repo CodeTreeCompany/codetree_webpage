@@ -1,4 +1,3 @@
-// src/components/sections/Services/Services.jsx
 import React, { useEffect, useState, useRef } from 'react';
 import { 
   FaArrowRight,
@@ -19,6 +18,7 @@ import {
 } from 'react-icons/fa';
 import Button from '../../components/common/button/Button';
 import Modal from '../../components/common/ui/Modal';
+import HowWeWork from '../../components/sections/how_we_work/HowWeWork';
 import styles from './Services.module.css';
 
 const Services = () => {
@@ -480,6 +480,8 @@ const Services = () => {
               Ofrecemos servicios de alta calidad adaptados a las necesidades específicas de cada cliente
             </p>
           </div>
+
+             <HowWeWork />
 
           <div className={styles.servicesGrid}>
             {services.map((service, index) => {
