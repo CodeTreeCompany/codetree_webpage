@@ -1,4 +1,3 @@
-// src/components/layout/Layout.jsx
 import React from 'react';
 import Header from '../common/header/Header';
 import Footer from '../common/footer/Footer';
@@ -8,6 +7,7 @@ import Services from '../sections/services/Services';
 import HowWeWork from '../sections/how_we_work/HowWeWork';
 import Pricing from '../sections/pricing/Pricing';
 import WhyChooseUs from '../sections/why_choose_us/WhyChooseUs';
+import ClientSay from '../sections/clients_say/ClientSay';
 import styles from './Layout.module.css';
 
 const Layout = ({ children }) => {
@@ -29,6 +29,10 @@ const Layout = ({ children }) => {
           
             <section id="why-us">
               <WhyChooseUs />
+            </section>
+
+            <section id="testimonials">
+              <ClientSay />
             </section>
             
           </>
