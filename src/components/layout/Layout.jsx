@@ -26,9 +26,7 @@ const Layout = ({ children }) => {
             <section id="services">
               <Services />
             </section>
-            <section id="process">
-              <HowWeWork />
-            </section>
+          
             <section id="why-us">
               <WhyChooseUs />
             </section>

@@ -1,4 +1,3 @@
-// src/components/sections/HowWeWork/HowWeWork.jsx
 import React, { useEffect, useState, useRef } from 'react';
 import { 
   FaClipboardList, 
