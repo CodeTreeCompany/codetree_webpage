@@ -1,0 +1,343 @@
+
+.supportPage {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  padding: 5rem 0 3rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.heroTitle {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.gradientText {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Channels Section */
+.channelsSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.channelCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.channelCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--green-400);
+}
+
+.channelIcon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+}
+
+.channelCard h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.channelCard p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.channelBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.channelBtn:hover {
+  background: var(--green-500);
+  border-color: var(--green-500);
+  color: white;
+  gap: 0.75rem;
+}
+
+/* Hours Section */
+.hoursSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.hoursCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hoursIcon {
+  width: 40px;
+  height: 40px;
+  color: var(--green-500);
+  flex-shrink: 0;
+}
+
+.hoursCard h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.hoursCard p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Form Section */
+.formSection {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.formSection h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.formSection > p {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.supportForm {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.formGroup label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 0.75rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--green-500);
+}
+
+.formGroup input.error,
+.formGroup select.error,
+.formGroup textarea.error {
+  border-color: #EF4444;
+}
+
+.formGroup span {
+  color: #EF4444;
+  font-size: 0.75rem;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* FAQ Link */
+.faqLink {
+  margin-bottom: 2rem;
+}
+
+.faqCard {
+  background: linear-gradient(135deg, var(--green-500), var(--blue-500));
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.faqIcon {
+  width: 40px;
+  height: 40px;
+  color: white;
+}
+
+.faqCard h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.faqCard p {
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.faqCard button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: var(--green-500);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.faqCard button:hover {
+  gap: 0.75rem;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animateIn {
+  animation: slideUp 0.5s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 0 2rem;
+  }
+  
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+  
+  .container {
+    padding: 2rem 1rem;
+  }
+  
+  .channelsSection {
+    grid-template-columns: 1fr;
+  }
+  
+  .hoursSection {
+    grid-template-columns: 1fr;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .faqCard {
+    flex-direction: column;
+    text-align: center;
+  }
+}
