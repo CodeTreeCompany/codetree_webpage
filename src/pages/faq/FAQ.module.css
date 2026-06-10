@@ -1,0 +1,258 @@
+/* src/pages/FAQ/FAQ.module.css */
+
+.faqPage {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  padding: 5rem 0 3rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.heroTitle {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.gradientText {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.categorySection {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--green-500);
+}
+
+.categoryIcon {
+  width: 28px;
+  height: 28px;
+  color: var(--green-500);
+}
+
+.categoryHeader h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.questionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.questionItem {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.questionButton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  background: none;
+  border: none;
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.3s;
+}
+
+.questionButton:hover {
+  color: var(--green-500);
+}
+
+.questionButton svg {
+  color: var(--green-500);
+  flex-shrink: 0;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.answer.open {
+  max-height: 300px;
+}
+
+.answer p {
+  padding: 0 0 1rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, var(--green-500), var(--blue-500));
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.ctaContent h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.ctaContent p {
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1.5rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  background: white;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  color: var(--green-500);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  gap: 0.75rem;
+}
+
+.whatsappButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  background: #25D366;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.whatsappButton:hover {
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animateIn {
+  animation: slideUp 0.5s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 0 2rem;
+  }
+  
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+  
+  .container {
+    padding: 2rem 1rem;
+  }
+  
+  .faqGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .categorySection {
+    padding: 1rem;
+  }
+  
+  .ctaSection {
+    padding: 1.5rem;
+  }
+  
+  .ctaContent h3 {
+    font-size: 1.2rem;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+  }
+  
+  .ctaButton,
+  .whatsappButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
